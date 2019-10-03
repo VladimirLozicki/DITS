@@ -3,7 +3,7 @@
 <head>
 	<title>Statistic</title>
 	<meta name="pageInfo" content="devincubator">
-	<link rel="stylesheet" href="css/tutor_statistic_styles.css" type="text/css"/>
+	<link rel="stylesheet" href="../css/tutor_statistic_styles.css" type="text/css"/>
 </head>
 <body>
 	<header></header>

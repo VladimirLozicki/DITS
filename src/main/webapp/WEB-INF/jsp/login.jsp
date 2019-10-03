@@ -1,34 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-	<title>Login</title>
-	<meta charset="utf-8">
-	<meta name="pageInfo" content="devincubator">
-	<style>
-		<%@include file='css/login_style.css' %>
-	</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Login page</title>
+    <link rel="css/login_style.css">
 </head>
+
 <body>
+<div class="main">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-form">
+                <img src="picture/devincpicture.png" alt="incubating">
+                <c:url var="loginUrl" value="/login"/>
+                <form action="${loginUrl}" method="post" class="form-horizontal">
+                    <c:if test="${param.error != null}">
+                        <div class="alert alert-danger">
+                            <p>Invalid username and password.</p>
+                        </div>
+                    </c:if>
+                    <c:if test="${param.logout != null}">
+                        <div class="alert alert-success">
+                            <p>You have been logged out successfully.</p>
+                        </div>
+                    </c:if>
+                    <div class="input-group input-sm">
+                        <label class="input-group-addon" for="username"><i class="fa fa-user"></i></label>
+                        <input type="text" class="form-control" id="username" name="ssoId" placeholder="Enter Username"
+                               required>
+                    </div>
+                    <div class="input-group input-sm">
+                        <label class="input-group-addon" for="password"><i class="fa fa-lock"></i></label>
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="Enter Password" required>
+                    </div>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-	<header></header>
+                    <div class="form-actions">
+                        <input type="submit"
+                               class="btn btn-block btn-primary btn-default" value="Log in">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-	<div class="main">
-		<div class="container">
-
-			<div class="dev-inc-picture">
-				<img src="resources/images/devincpicture.png" alt="incubating">
-			</div>
-			<div class="login-form">
-				<form action="login" method="post">
-					<input class="login-field" type="text" name="j_username" placeholder="Логин"><br>
-					<input class="password-field" type="password" name="j_password" placeholder="Пароль"><br>
-					<input class="submit-button" type="submit" value="Войти">
-				</form>
-			</div>
-		</div>
-	</div>
-
-	<footer></footer>
 </body>
 </html>
