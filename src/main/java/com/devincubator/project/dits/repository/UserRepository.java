@@ -12,7 +12,6 @@ public class UserRepository implements Repo<User> {
 
     @Override
     public List<User> read(Session session) {
-
         session.beginTransaction();
         return session
                 .createQuery(Query.SELECT_USER.getQuery(), User.class)

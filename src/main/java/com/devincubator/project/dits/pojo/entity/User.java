@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+//@Table(name = "user")
 public class User {
 
     @Id
@@ -24,12 +24,12 @@ public class User {
     @Column
     private Integer password;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name = "roleId")
-    private Role role;
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private List<Statistic> statistics;
+//    @ManyToOne(cascade=CascadeType.ALL)
+//    @JoinColumn(name = "roleId")
+//    private Role role;
+//
+//    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+//    private List<Statistic> statistics;
 
     public User() {
     }
@@ -39,7 +39,7 @@ public class User {
         this.lastName = lastName;
         this.login = login;
         this.password = password;
-        this.role = role;
+       // this.role = role;
     }
 
     public String getFirstName() {
@@ -74,23 +74,34 @@ public class User {
         this.password = password;
     }
 
-    public Role getRole() {
-        return role;
-    }
+//    public Role getRole() {
+//        return role;
+//    }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
+//    public void setRole(Role role) {
+//        this.role = role;
+//    }
 
-    public List<Statistic> getStatistics() {
-        return statistics;
-    }
+//    public List<Statistic> getStatistics() {
+//        return statistics;
+//    }
 
-    public void setStatistics(List<Statistic> statistics) {
-        this.statistics = statistics;
-    }
+//    public void setStatistics(List<Statistic> statistics) {
+//        this.statistics = statistics;
+//    }
 
     public Long getUserId() {
         return userId;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", login='" + login + '\'' +
+                ", password=" + password +
+                '}';
     }
 }
